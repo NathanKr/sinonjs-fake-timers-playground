@@ -1,0 +1,26 @@
+{
+  "name": "sinonjs-fake-timers-playground",
+  "version": "1.0.0",
+  "description": "<h2>Motivation</h2>\r This is popular package use by vitest to simulate setInterval , setTimout and Date. So interesting to play with it",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathanKr/sinonjs-fake-timers-playground.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NathanKr/sinonjs-fake-timers-playground/issues"
+  },
+  "homepage": "https://github.com/NathanKr/sinonjs-fake-timers-playground#readme",
+  "dependencies": {
+    "@sinonjs/fake-timers": "^10.3.0"
+  },
+  "devDependencies": {
+    "@types/sinonjs__fake-timers": "^8.1.2"
+  }
+}
