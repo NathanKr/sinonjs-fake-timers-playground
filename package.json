@@ -4,6 +4,7 @@
   "description": "<h2>Motivation</h2>\r This is popular package use by vitest to simulate setInterval , setTimout and Date. So interesting to play with it",
   "main": "index.js",
   "scripts": {
+    "test":"vitest",
     "dev": "nodemon src/index.ts"
   },
   "repository": {
@@ -21,6 +22,7 @@
     "@sinonjs/fake-timers": "^10.3.0"
   },
   "devDependencies": {
-    "@types/sinonjs__fake-timers": "^8.1.2"
+    "@types/sinonjs__fake-timers": "^8.1.2",
+    "vitest": "^0.32.2"
   }
 }

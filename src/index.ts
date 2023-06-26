@@ -1,7 +1,7 @@
 import {
   fakeClockTicksVsRealClockTicks,
   theRealClockReferenceTheFakeClock,
-} from "./utils";
+} from "./fake-timers-demo";
 
 fakeClockTicksVsRealClockTicks();
 theRealClockReferenceTheFakeClock();
