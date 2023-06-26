@@ -1,4 +1,7 @@
-import { fakeClockTicksVsRealClockTicks, replaceTheRealClock } from "./utils";
+import {
+  fakeClockTicksVsRealClockTicks,
+  theRealClockReferenceTheFakeClock,
+} from "./utils";
 
 fakeClockTicksVsRealClockTicks();
-replaceTheRealClock();
+theRealClockReferenceTheFakeClock();

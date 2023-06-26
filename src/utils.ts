@@ -1,19 +1,27 @@
 import FakeTimers from "@sinonjs/fake-timers";
 
-export function replaceTheRealClock() {
-  const fakeClock = FakeTimers.install();
-  const CLOCK_TICKS = 15;
+export function theRealClockReferenceTheFakeClock() {
+  let fakeClock;
+  try {
+    // --- the real clock reference the fake clock
+    fakeClock = FakeTimers.install();
+    const CLOCK_TICKS_IN_MS = 15;
 
-  // global setTimout is invoked with fakeClock
-  console.log(`fakeClock.now after create: ${fakeClock.now}`);
-  setTimeout(() => console.log("setTimeout is called"), CLOCK_TICKS);
-  for (let index = 0; index < 2 * CLOCK_TICKS; index++) {
-    console.log(`index : ${index}`);
-    fakeClock.tick(1);
+    // global setTimout is invoked with fakeClock
+    console.log(`fakeClock.now after create: ${fakeClock.now}`);
+    setTimeout(() => console.log("setTimeout is called"), CLOCK_TICKS_IN_MS);
+    for (let index = 0; index < 2 * CLOCK_TICKS_IN_MS; index++) {
+      console.log(`index : ${index}`);
+      const time_unix = fakeClock.tick(1);
+      console.log(`time_unix : ${time_unix}`);
+      
+    }
+    console.log(`fakeClock.now after loop : ${fakeClock.now}`);
+  } finally {
+    // --- inside finally to uninstall even when exception happens
+    // --- the real clock reference itself again
+    fakeClock?.uninstall();
   }
-  console.log(`fakeClock.now after loop : ${fakeClock.now}`);
-
-  fakeClock.uninstall();
 }
 
 export function fakeClockTicksVsRealClockTicks() {
@@ -27,22 +35,22 @@ export function fakeClockTicksVsRealClockTicks() {
     If your CPU is 40 MHz or better, a tick is 1 ms. For slower processors,
     a tick represents 10 ms
     */
-  const CLOCK_TICKS = 1500;
+  const CLOCK_TICKS_IN_MS = 1500;
   console.log("setTimeout is invoked");
   fakeClock.setTimeout(function () {
     console.log(
-      `setTimeout callback is invoked after : ${CLOCK_TICKS} clock ticks`
+      `setTimeout callback is invoked after : ${CLOCK_TICKS_IN_MS} clock ticks`
     );
-  }, CLOCK_TICKS);
+  }, CLOCK_TICKS_IN_MS);
 
-  fakeClock.tick(CLOCK_TICKS); // advance 15 ticks
+  const time_unix = fakeClock.tick(CLOCK_TICKS_IN_MS); // advance 15 ticks
   console.log(
-    `fakeClock.now after fakeClock.tick(${CLOCK_TICKS}) : ${fakeClock.now}`
+    `fakeClock.now after fakeClock.tick(${CLOCK_TICKS_IN_MS}) : ${fakeClock.now} . time_unix : ${time_unix}`
   );
   const endTimeTicks = Date.now();
   console.log(
     `total ticks real clock : ${
       endTimeTicks - startTimeTicks
-    }. total ticks fake clock : ${CLOCK_TICKS}`
+    }. total ticks fake clock : ${CLOCK_TICKS_IN_MS}`
   );
 }
