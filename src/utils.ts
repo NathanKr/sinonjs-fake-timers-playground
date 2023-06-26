@@ -1,5 +1,20 @@
 import FakeTimers from "@sinonjs/fake-timers";
 
+export function replaceTheRealClock() {
+  const fakeClock = FakeTimers.install();
+  const CLOCK_TICKS = 15;
+
+  // global setTimout is invoked with fakeClock
+  console.log(`fakeClock.now after create: ${fakeClock.now}`);
+  setTimeout(() => console.log("setTimeout is called"), CLOCK_TICKS);
+  for (let index = 0; index < 2 * CLOCK_TICKS; index++) {
+    console.log(`index : ${index}`);
+    fakeClock.tick(1);
+  }
+  console.log(`fakeClock.now after loop : ${fakeClock.now}`);
+
+  fakeClock.uninstall();
+}
 
 export function fakeClockTicksVsRealClockTicks() {
   const fakeClock = FakeTimers.createClock();
