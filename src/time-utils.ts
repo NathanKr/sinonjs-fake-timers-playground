@@ -1,3 +1,19 @@
+export function logEverySec() : void{
+  const intervalPeriodMs = 1000;
+  const callback = () => console.log('calback is called')
+  setInterval(callback,intervalPeriodMs)
+}
+
+
+export function logEverySecAndPause5Ms() : void{
+  const intervalPeriodMs = 1000;
+  const callback = async () => {
+    await pauseMs(5);
+    console.log('calback is called');
+  }
+  setInterval(callback,intervalPeriodMs)
+}
+
 export function pauseMs(sleepMs: number): Promise<unknown> {
   return new Promise((resolve) => {
     setTimeout(resolve, sleepMs);
