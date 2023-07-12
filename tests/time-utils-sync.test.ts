@@ -4,7 +4,7 @@ import {
   isItDecember,
   logEverySec,
   pauseMs,
-} from "../src/time-utils";
+} from "../src/time-utils-sync";
 
 
 
