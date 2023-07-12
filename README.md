@@ -14,11 +14,15 @@ npm test
 ```
 
 
-
 <h2>Code</h2>
 <ul>
 <li>index.ts : use fake clock to be used with setTimout</li>
-<li>time.utils.ts : test isItDecember , pauseMs</li>
+<li>time.utils.ts : test isItDecember , pauseMs , logEverySec </li>
+</ul>
+
+<h2>Open issues</h2>
+<ul>
+<li>I am not able to test logEverySecAndPause5Ms which as async operation in the callback</li>
 </ul>
 
 <h2>Reference</h2>

@@ -3,9 +3,10 @@ import FakeTimers from "@sinonjs/fake-timers";
 import {
   isItDecember,
   logEverySec,
-  logEverySecAndPause5Ms,
   pauseMs,
 } from "../src/time-utils";
+
+
 
 describe("pauseMs", () => {
   let fakeClock;
@@ -136,4 +137,6 @@ describe("pauseMe with async operations", () => {
     const endTimeTicks = Date.now();
     expect(endTimeTicks - startTimeTicks).toBe(2 * sleepMs);
   });
+
+  
 });
