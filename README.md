@@ -23,5 +23,7 @@ npm test
 
 
 <h2>Reference</h2>
-<a href='https://github.com/sinonjs/fake-timers'>sinonjs/fake-timers</a>
-<a href='https://gist.github.com/apieceofbart/e6dea8d884d29cf88cdb54ef14ddbcc4'>solution to test setInterval with async callback code</a>
+<ul>
+<li>
+<a href='https://github.com/sinonjs/fake-timers'>sinonjs/fake-timers</a></li>
+<li><a href='https://gist.github.com/apieceofbart/e6dea8d884d29cf88cdb54ef14ddbcc4'>solution to test setInterval with async callback code</a></li>
