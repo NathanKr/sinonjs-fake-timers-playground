@@ -1,7 +1,7 @@
 // --- this is from https://gist.github.com/apieceofbart/e6dea8d884d29cf88cdb54ef14ddbcc4
 
 import { vi, test, expect, beforeEach, afterEach } from "vitest";
-import { logEverySecWithAwait, runInterval } from "../src/time-utils-async";
+import { logEverySecWaitAboveTimeoutMs, logEverySecWithAwait, runInterval } from "../src/time-utils-async";
 import FakeTimers from "@sinonjs/fake-timers";
 
 // Goal: We want to test that function - make sure our callback was called
@@ -53,3 +53,14 @@ test("should call console.log in logEverySecWithAwait", async () => {
   await flushPromises();
   expect(spy).toHaveBeenCalledTimes(2);
 });
+
+// i am not able to test this
+// test("should call console.log in logEverySecWaitAboveTimeoutMs", async () => {
+//   const spy = vi.spyOn(console, "log");
+//   const timeoutSec = 1.5;
+//   logEverySecWaitAboveTimeoutMs(timeoutSec);
+
+//   fakeClock.tick(3000);
+//   await flushPromises();
+//   expect(spy).toHaveBeenCalledTimes(1);
+// });
