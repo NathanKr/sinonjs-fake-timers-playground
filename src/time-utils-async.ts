@@ -12,8 +12,8 @@ export function logEverySecWithAwait(): void {
 
 export function logEverySecWaitAboveTimeoutMs(timeoutSec: number): void {
   const intervalPeriodMs = 1000;
-  const callback = () => {
-    WaitByGreenchTimeAPI(timeoutSec);
+  const callback = async () => {
+    await WaitByGreenchTimeAPI(timeoutSec);
     console.log('called after WaitByGreenchTimeAPI');
   }
   setInterval(callback, intervalPeriodMs);

@@ -13,13 +13,10 @@ npm i
 npm test
 ```
 
-
-<h2>Code</h2>
+<h2>open issues</h2>
 <ul>
-<li>index.ts : use fake clock to be used with setTimout</li>
-<li>time-utils-sync.test.ts : test isItDecember , pauseMs , logEverySec </li>
-<li>time-utils-async.test.ts : test logEverySecWithAwait , runInterval</li>
-</ul>
+<li>not clear how to test logEverySecWaitAboveTimeoutMs whos callback pause for specific time </li>
+<ul>
 
 
 <h2>Reference</h2>
